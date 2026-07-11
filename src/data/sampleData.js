@@ -47,7 +47,10 @@ export const lyricsTimed = [
   { line: "Ovvoru asaivum oru varthai", duration: 2500 },
   { line: "Nadanam pesum bashai", duration: 2300 },
 ];
-
+export const sampleSteps = [
+  { id: 1, beat: 4, label: "Step touch, arms open" },
+  { id: 2, beat: 8, label: "Turn + hold" },
+];
 export const communityEvents = [
   {
     id: 1,
@@ -74,3 +77,4 @@ export const communityEvents = [
     location: "Pune, India",
   },
 ];
+
