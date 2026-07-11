@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Hash } from "lucide-react";
 import TopNav from "../components/TopNav.jsx";
 import RhythmLane from "../components/RhythmLane.jsx";
 import VideoPlayer from "../components/VideoPlayer.jsx";
@@ -12,14 +11,12 @@ const SPLIT_TRANSITION = { duration: 0.42, ease: [0.33, 0, 0.2, 1] };
 export default function TrainingStudio() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [speed, setSpeed] = useState(1);
-  const [beatCount, setBeatCount] = useState(0);
   const [showLyrics, setShowLyrics] = useState(false);
   const [resetKey, setResetKey] = useState(0);
   const [flash, setFlash] = useState(false);
   const [lastBeat, setLastBeat] = useState(0);
 
   const handleBeat = () => {
-    setBeatCount((c) => c + 1);
     setFlash(true);
     setLastBeat((n) => n + 1);
     setTimeout(() => setFlash(false), 220);
@@ -29,7 +26,6 @@ export default function TrainingStudio() {
   const handlePause = () => setIsPlaying(false);
   const handleReset = () => {
     setIsPlaying(false);
-    setBeatCount(0);
     setFlash(false);
     setResetKey((k) => k + 1);
   };
@@ -65,29 +61,6 @@ export default function TrainingStudio() {
             onToggleLyrics={() => setShowLyrics((s) => !s)}
           />
         </motion.div>
-
-        {/* beat counter chip */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.15 }}
-          className="mb-4 flex items-center gap-2"
-        >
-          <span className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-xs font-medium text-slate-300">
-            <Hash className="h-3.5 w-3.5 text-cyan-300" />
-            <motion.span
-              key={beatCount}
-              initial={{ scale: 1.35, color: "#22d3ee" }}
-              animate={{ scale: 1, color: "#e2e8f0" }}
-              transition={{ duration: 0.25 }}
-              className="font-heading font-semibold"
-            >
-              {beatCount}
-            </motion.span>
-            beats hit
-          </span>
-        </motion.div>
-
         {/* seamless stage: beat lane(s) flow directly into the dance video, one glass surface */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
