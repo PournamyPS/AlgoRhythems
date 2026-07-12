@@ -32,7 +32,7 @@ export default function Login() {
               Rhythm you can see, feel, and follow.
             </p>
             <p className="mt-2 text-sm text-slate-400">
-              Every beat becomes a visual cue — so dance training works for every body and every sense.
+              Every beat becomes a visual cue, so dance training works for every body and every sense.
             </p>
           </div>
         </div>
@@ -139,7 +139,7 @@ export default function Login() {
           </motion.button>
 
           <p className="mt-8 text-center text-sm text-slate-500">
-            New to RhythmBridge?{" "}
+            New to AlgoRhythm?{" "}
             <button type="button" className="font-medium text-violet-400 hover:text-violet-300">
               Create an account
             </button>
