@@ -5,57 +5,71 @@ import ReplyModal from "../components/ReplyModal";
 
 export default function CommunityHub() {
   const [discussions, setDiscussions] = useState([
-    {
-      author: "Anonymous Dancer",
-      time: "5 min ago",
-      category: "Practice",
-      title: "How do you stay on beat without hearing clearly?",
-      content:
-        "I've been practicing with visual beat indicators and they're helping a lot. Any other tips?",
-      helpful: 14,
-      replies: [
-  "Visual beat indicators helped me a lot!",
-  "Try practicing with vibrations too.",
-],
-    },
-    {
-      author: "Anonymous Performer",
-      time: "18 min ago",
-      category: "Beginner",
-      title: "Looking for beginner-friendly choreography",
-      content:
-        "Can anyone suggest routines that are easy to follow using visual rhythm cues?",
-      helpful: 10,
-      replies: 5,
-    },
-    {
-      author: "Anonymous Student",
-      time: "1 hour ago",
-      category: "Performance",
-      title: "Visual rhythm lane appreciation!",
-      content:
-        "The falling beat visuals make learning dance much easier than audio-only practice.",
-      helpful: 21,
-      replies: 12,
-    },
-  ]);
+  {
+    id : 1,
+    author: "Anonymous Dancer",
+    time: "5 min ago",
+    category: "Practice",
+    title: "How do you stay on beat without hearing clearly?",
+    content:
+      "I've been practicing with visual beat indicators and they're helping a lot. Any other tips?",
+    helpful: 14,
+    replies: [
+      "Visual beat indicators helped me a lot!",
+      "Try practicing with vibrations too.",
+    ],
+  },
+  { 
+    id : 2,
+    author: "Anonymous Performer",
+    time: "18 min ago",
+    category: "Beginner",
+    title: "Looking for beginner-friendly choreography",
+    content:
+      "Can anyone suggest routines that are easy to follow using visual rhythm cues?",
+    helpful: 10,
+    replies: [
+      "Try simple 8-count routines first.",
+      "The training studio exercises are helpful.",
+      "Practice in front of a mirror.",
+      "Break the choreography into smaller parts.",
+      "Keep the tempo slow initially.",
+    ],
+  },
+  { 
+    id : 3,
+    author: "Anonymous Student",
+    time: "1 hour ago",
+    category: "Performance",
+    title: "Visual rhythm lane appreciation!",
+    content:
+      "The falling beat visuals make learning dance much easier than audio-only practice.",
+    helpful: 21,
+    replies: [
+      "I completely agree!",
+      "It made timing much easier.",
+      "The visuals are very intuitive.",
+      "I've improved a lot using them.",
+    ],
+  },
+]);
 
-  const topics = [
-    "All",
-    "Bharatanatyam",
-    "Hip Hop",
-    "Mohiniyattam",
-    "Practice",
-    "Beginner",
-    "Performance",
-  ];
+  const [topics, setTopics] = useState([
+  "All",
+  "Bharatanatyam",
+  "Hip Hop",
+  "Mohiniyattam",
+  "Practice",
+  "Beginner",
+  "Performance",
+]);
 
   const [search, setSearch] = useState("");
   const [selectedTopic, setSelectedTopic] = useState("All");
   const [showModal, setShowModal] = useState(false);
 
   const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("Practice");
+  const [category, setCategory] = useState("");
   const [content, setContent] = useState("");
 
   const [selectedDiscussion, setSelectedDiscussion] = useState(null);
@@ -69,19 +83,31 @@ const handlePost = () => {
   }
 
   const newDiscussion = {
+  id: Date.now(),
     author: "Anonymous User",
     time: "Just now",
-    category,
+    category: category.trim(),
     title,
     content,
     helpful: 0,
     replies: [],
   };
 
+ const cleanCategory = category.trim();
+
+if (
+  cleanCategory &&
+  !topics.some(
+    (topic) => topic.toLowerCase() === cleanCategory.toLowerCase()
+  )
+) {
+  setTopics([...topics, cleanCategory]);
+}
+
   setDiscussions([newDiscussion, ...discussions]);
 
   setTitle("");
-  setCategory("Practice");
+  setCategory("");
   setContent("");
   setShowModal(false);
 };
@@ -103,7 +129,7 @@ const handlePost = () => {
       <div className="max-w-6xl mx-auto px-6 py-8">
         {/* Header */}
         <h1 className="text-4xl font-bold">
-          Anonymous Community Hub
+          Community Hub
         </h1>
 
         <p className="text-gray-400 mt-2">
@@ -151,9 +177,9 @@ const handlePost = () => {
 
         {/* Discussion List */}
         <div className="mt-10 space-y-5">
-          {filteredDiscussions.map((discussion, index) => (
+          {filteredDiscussions.map((discussion) => (
             <DiscussionCard
-  key={index}
+  key={discussion.id}
   {...discussion}
   onRepliesClick={() => {
     setSelectedDiscussion(discussion);
@@ -181,18 +207,13 @@ const handlePost = () => {
   className="w-full p-3 rounded-lg bg-[#0B1120] border border-gray-700 mb-4"
 />
 
-<select
+<input
+  type="text"
+  placeholder="Topic (e.g. Salsa, Contemporary, Practice Tips)"
   value={category}
   onChange={(e) => setCategory(e.target.value)}
   className="w-full p-3 rounded-lg bg-[#0B1120] border border-gray-700 mb-4"
->
-  <option>Practice</option>
-  <option>Beginner</option>
-  <option>Performance</option>
-  <option>Bharatanatyam</option>
-  <option>Hip Hop</option>
-  <option>Mohiniyattam</option>
-</select>
+/>
 
 <textarea
   rows="5"
@@ -229,7 +250,7 @@ const handlePost = () => {
   replies={selectedDiscussion?.replies || []}
   onAddReply={(newReply) => {
     const updatedDiscussions = discussions.map((discussion) => {
-      if (discussion.title === selectedDiscussion.title) {
+      if (discussion.id === selectedDiscussion.id) {
         return {
           ...discussion,
           replies: [...discussion.replies, newReply],

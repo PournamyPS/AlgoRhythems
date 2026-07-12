@@ -76,9 +76,9 @@ export default function Dashboard() {
           <motion.div variants={item}>
             <FeatureCard
               icon={CalendarDays}
-              title="Community Events"
+              title="TEST EVENTS"
               description="Discover accessible workshops, meetups, and performances happening near you."
-              comingSoon
+              onClick={() => navigate("/events")}
               accent="violet"
             />
           </motion.div>

@@ -18,7 +18,8 @@ export default function ReplyModal({
         <h2 className="text-2xl font-bold mb-5">{title}</h2>
 
         <div className="space-y-3 max-h-72 overflow-y-auto mb-6">
-          {replies.map((reply, index) => (
+          {Array.isArray(replies) &&
+  replies.map((reply, index) => (
             <div
               key={index}
               className="bg-[#0B1120] rounded-lg p-3"

@@ -4,6 +4,10 @@ import Dashboard from "./pages/Dashboard.jsx";
 import TrainingStudio from "./pages/TrainingStudio.jsx";
 import ChoreographyStudio from "./pages/ChoreographyStudio.jsx";
 import CommunityHub from "./pages/CommunityHub.jsx";
+import CommunityEvents from "./pages/CommunityEvents.jsx";
+import RegisterEvent from "./pages/RegisterEvent";
+import Register from "./pages/Register";
+
 
 export default function App() {
   return (
@@ -13,6 +17,13 @@ export default function App() {
       <Route path="/training" element={<TrainingStudio />} />
       <Route path="/choreography" element={<ChoreographyStudio />} />
       <Route path="/community" element={<CommunityHub />} />
+      <Route path="/events" element={<CommunityEvents />} />
+      <Route
+  path="/register"
+  element={<RegisterEvent />}
+/>
+<Route path="/register" element={<Register />} />
+
     </Routes>
   );
 }
