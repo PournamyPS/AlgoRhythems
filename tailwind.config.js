@@ -4,30 +4,38 @@ export default {
   theme: {
     extend: {
       colors: {
+        // deep magenta-plum instead of near-black — still dark enough for contrast,
+        // but reads as a color, not "off"
         ink: {
-          950: "#140b0d",
-          900: "#1c1014",
-          800: "#26161c",
-          700: "#301c24",
-          600: "#3d232b",
+          950: "#2a0a1e",
+          900: "#380f28",
+          800: "#481533",
+          700: "#5a1d40",
+          600: "#6e254e",
         },
-        // was violet — now saffron/marigold, the primary accent
+        // saffron/marigold, pushed more saturated and warm
         violet: {
-          400: "#f5b04a",
-          500: "#e8871e",
-          600: "#d1721a",
-          700: "#a85814",
+          400: "#ffb347",
+          500: "#ff8c1a",
+          600: "#f2670a",
+          700: "#cc5200",
         },
-        // was cyan — now peacock teal, the secondary accent
+        // peacock teal, brightened
         cyan: {
-          300: "#7fe0d2",
-          400: "#3bbfae",
-          500: "#116466",
+          300: "#4de8d1",
+          400: "#14cbb0",
+          500: "#0aa693",
         },
-        // new: temple gold, for highlights/borders
+        // new: ruby/magenta — the missing third accent, this is what will
+        // make it feel "festival" rather than "muted dashboard"
+        rose: {
+          400: "#ff5ca8",
+          500: "#ec2f7b",
+          600: "#c81a63",
+        },
         gold: {
-          400: "#d9b45c",
-          500: "#c9a24b",
+          400: "#ffd166",
+          500: "#f4b942",
         },
         maroon: {
           500: "#7a1f2b",
@@ -39,27 +47,23 @@ export default {
         body: ["Inter", "sans-serif"],
       },
       boxShadow: {
-        glow: "0 0 40px -10px rgba(232, 135, 30, 0.45)",
-        "glow-cyan": "0 0 40px -10px rgba(17, 100, 102, 0.45)",
+        glow: "0 0 50px -8px rgba(255, 140, 26, 0.6)",
+        "glow-cyan": "0 0 50px -8px rgba(20, 203, 176, 0.55)",
+        "glow-rose": "0 0 50px -8px rgba(236, 47, 123, 0.55)",
         card: "0 8px 30px rgba(0,0,0,0.4)",
       },
       backgroundImage: {
         "grid-glow":
-          "radial-gradient(circle at 20% 0%, rgba(232,135,30,0.16), transparent 45%), radial-gradient(circle at 85% 10%, rgba(17,100,102,0.16), transparent 40%)",
+          "radial-gradient(circle at 15% 0%, rgba(255,140,26,0.35), transparent 45%), radial-gradient(circle at 85% 15%, rgba(20,203,176,0.28), transparent 45%), radial-gradient(circle at 50% 100%, rgba(236,47,123,0.22), transparent 50%)",
       },
-      borderRadius: {
-        xl2: "20px",
-        xl3: "24px",
-      },
+      borderRadius: { xl2: "20px", xl3: "24px" },
       keyframes: {
         pulseRing: {
-          "0%": { boxShadow: "0 0 0 0 rgba(232,135,30,0.55)" },
-          "100%": { boxShadow: "0 0 0 18px rgba(232,135,30,0)" },
+          "0%": { boxShadow: "0 0 0 0 rgba(255,140,26,0.55)" },
+          "100%": { boxShadow: "0 0 0 18px rgba(255,140,26,0)" },
         },
       },
-      animation: {
-        pulseRing: "pulseRing 1.4s ease-out infinite",
-      },
+      animation: { pulseRing: "pulseRing 1.4s ease-out infinite" },
     },
   },
   plugins: [],
