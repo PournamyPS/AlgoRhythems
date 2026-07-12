@@ -23,7 +23,7 @@ export default function Logo({ size = 40, showWordmark = true, className = "" })
       </svg>
       {showWordmark && (
         <span className="font-heading text-xl font-bold tracking-tight text-white">
-          Rhythm<span className="text-violet-400">Bridge</span>
+          Algo<span className="text-violet-400">Rhythm</span>
         </span>
       )}
     </div>
