@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { Music4, Users, CalendarDays, Sparkles, Lightbulb,wand2 } from "lucide-react";
+import { Music4, Users, CalendarDays, Sparkles, Lightbulb,Wand2 } from "lucide-react";
 import TopNav from "../components/TopNav.jsx";
 import FeatureCard from "../components/FeatureCard.jsx";
 import { recentActivity, accessibilityTips } from "../data/sampleData.js";
