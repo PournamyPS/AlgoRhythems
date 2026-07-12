@@ -31,7 +31,7 @@
 
 @layer components {
   .glass {
-    @apply bg-white/[0.04] border border-white/[0.08] backdrop-blur-xl;
+    @apply bg-white/[0.06] border border-white/[0.012] backdrop-blur-xl;
   }
   .glass-strong {
     @apply bg-white/[0.06] border border-white/[0.1] backdrop-blur-xl;
