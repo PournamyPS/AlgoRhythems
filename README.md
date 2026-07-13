@@ -131,3 +131,6 @@ Team **AlgoRhythms**
 - Devinandha V R
 - Aysha Shafeek M M
 ---
+
+## Live Demo
+[AlgoRhytms](https://algo-rhythems-aysha.vercel.app/)
