@@ -1,6 +1,6 @@
-# RhythmBridge
+# AlgoRhythms
 
-RhythmBridge is an accessibility-focused web application designed to make rhythm-based learning more engaging through synchronized visual cues, interactive practice sessions, and a collaborative community platform.
+AlgoRhythms is an accessibility-focused web application designed to make rhythm-based learning more engaging through synchronized visual cues, interactive practice sessions, and a collaborative community platform.
 
 ## Features
 
